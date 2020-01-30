@@ -22,13 +22,12 @@ class App extends Component {
     const {email, password} = this.state;
     axios.post('/auth/signup', {email, password}).then(res => {
       this.setState({loggedInUser: res.data, email: '', password: ''})
-    })
-    .catch(err => console.log(err));
+    }).catch(err => console.log(err));
   }
 
   logout() {
     axios.get('/auth/logout');
-    this.setState({loggedInUser: {} });
+    this.setState({loggedInUser: {}});
   }
 
   render() {
